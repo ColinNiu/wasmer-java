@@ -52,9 +52,6 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-
       - name: Set up Java ${{ matrix.version }}
         uses: actions/setup-java@v1
         with:
@@ -66,6 +63,9 @@ jobs:
           toolchain: stable
           default: true
           override: true
+
+      - name: Check out code
+        uses: actions/checkout@v2
 
       - name: Cache Cargo registry
         uses: actions/cache@v1
